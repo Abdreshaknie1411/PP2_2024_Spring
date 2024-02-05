@@ -7,7 +7,7 @@ class Account:
         self.balance=self.balance*self.percentage
         return self.balance
     def withdrawals(self,amount):
-        if amount<=self.balance
+        if amount<=self.balance:
             self.balance=self.balance-amount
             return self.balance
 owner=str(input())
