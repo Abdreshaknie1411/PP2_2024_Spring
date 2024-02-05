@@ -75,10 +75,11 @@ movies = [
 "category": "Romance"
 }
 ]
-def move(dict):
+def list(dict):
+    n=str(input("which categgory do you prefer:"))
+    n=n[0].upper() + n[1:].lower()
     for i in dict:
-        result=i["imdb"]
-        if result > 5.5:
-            Name=i["name"]
-            print(Name)
-move(movies)
+        if i["category"]==n:
+            print(i["name"])
+list(movies)
+    
