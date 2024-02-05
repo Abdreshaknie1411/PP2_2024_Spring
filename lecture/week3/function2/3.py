@@ -76,7 +76,7 @@ movies = [
 }
 ]
 def list(dict):
-    n=str(input("which categgory do you prefer:"))
+    n=str(input("which categgory do you prefer:\n"))
     n=n[0].upper() + n[1:].lower()
     for i in dict:
         if i["category"]==n:
