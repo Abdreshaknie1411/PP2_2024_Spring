@@ -79,6 +79,6 @@ def move(dict):
     for i in dict:
         result=i["imdb"]
         if result > 5.5:
-            Name=i["name"]
-            print(Name)
+            result=i["name"]
+            print(result)
 move(movies)
