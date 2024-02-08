@@ -17,6 +17,8 @@ class point:
 p=point()
 s=p.show()
 print(s)
+a=p.move()
+print(a)
 d=p.dist()
 print(d)
 
