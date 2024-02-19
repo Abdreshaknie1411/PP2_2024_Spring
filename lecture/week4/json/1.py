@@ -1,5 +1,5 @@
 import json
-with open("sample_data.json") as my_file:
+with open('sample_data.json') as my_file:
     json_string = my_file.read()
 data = json.loads(json_string)
 
