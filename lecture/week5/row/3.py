@@ -8,7 +8,7 @@ results=re.finditer(pattern,text)
 
 with open('date.csv','w',newline='',encoding="utf8") as csvfile:
     writer=csv.writer(csvfile)
-    writer.writerow(['order','name','count','price'])
+    writer.writerow(['order','name','count','price','cost'])
     for x in results:
         writer.writerow([
             x.group('order'), 
