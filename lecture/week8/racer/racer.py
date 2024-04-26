@@ -9,7 +9,7 @@ pygame.init()
 FPS = 60
 FramePerSec = pygame.time.Clock()
 
-BLUE = (0, 0, 255)
+BLUE = (0,0,255)
 RED = (255, 0, 0)
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
@@ -65,13 +65,19 @@ class Coin(pygame.sprite.Sprite):
         self.image = pygame.Surface((30, 30))
         self.image.fill((255, 215, 0))
         self.rect = self.image.get_rect()
-        self.rect.center = (random.randint(40, SCREEN_WIDTH - 40), random.randint(0, SCREEN_HEIGHT - 40))
+        self.rect.center = (random.randint(40, SCREEN_WIDTH - 40), 0)
+    def __init__(self):
+        super().__init__()
+        self.image = pygame.Surface((30, 30))
+        self.image.fill((pygame.Color('orange')))
+        self.rect = self.image.get_rect()
+        self.rect.center = (random.randint(40, SCREEN_WIDTH - 40), 0)
 
     def move(self):
         self.rect.move_ip(0, SPEED)
         if self.rect.top > SCREEN_HEIGHT:
             self.rect.top = 0
-            self.rect.center = (random.randint(40, SCREEN_WIDTH - 40), random.randint(0, SCREEN_HEIGHT - 40))
+            self.rect.center = (random.randint(40, SCREEN_WIDTH - 40), 0)
 
 P1 = Player()
 E1 = Enemy()

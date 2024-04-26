@@ -28,7 +28,7 @@ screnn=pygame.display.set_mode((res,res))
 pygame.display.set_caption('Snake')
 clock=pygame.time.Clock()
 
-
+Color=randrange(0,255)
 
 running=True
 while running:
@@ -38,7 +38,7 @@ while running:
     
     screnn.blit(img, (0,0))
     #drawing snake, apple
-    [(pygame.draw.rect(screnn,pygame.Color('green'),(i,j,size-2,size-2))) for i,j in snake]
+    [(pygame.draw.rect(screnn,Color,(i,j,size-2,size-2))) for i,j in snake]
     pygame.draw.rect(screnn,pygame.Color('red'),(*apple,size,size))
     pygame.draw.rect(screnn,pygame.Color('yellow'),(*apple1,size,size))
     #show score
@@ -54,6 +54,7 @@ while running:
     
     #eating apple
     if snake[-1]==apple:
+        #[(pygame.draw.rect(screnn,Color,(i,j,size-2,size-2))) for i,j in snake]
         apple=randrange(0,res,size),randrange(0,res,size)
         length +=1
         fps +=1
@@ -61,6 +62,7 @@ while running:
         food_timer=pygame.time.get_ticks()
     if snake[-1]==apple1:
         apple1=randrange(0,res,size),randrange(0,res,size)
+        
         length +=2
         fps +=2
         score+=2

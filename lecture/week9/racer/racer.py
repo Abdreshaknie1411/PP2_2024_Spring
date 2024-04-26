@@ -18,6 +18,7 @@ SCREEN_WIDTH = 400
 SCREEN_HEIGHT = 600
 SPEED = 5
 SCORE = 0
+running=True
 
 font = pygame.font.SysFont("Verdana", 60)
 font_small = pygame.font.SysFont("Verdana", 20)
@@ -65,13 +66,13 @@ class Coin(pygame.sprite.Sprite):
         self.image = pygame.Surface((30, 30))
         self.image.fill((255, 215, 0))
         self.rect = self.image.get_rect()
-        self.rect.center = (random.randint(40, SCREEN_WIDTH - 40), random.randint(0, SCREEN_HEIGHT - 40))
+        self.rect.center = (random.randint(40, SCREEN_WIDTH - 40),0)
 
     def move(self):
         self.rect.move_ip(0, SPEED)
         if self.rect.top > SCREEN_HEIGHT:
             self.rect.top = 0
-            self.rect.center = (random.randint(40, SCREEN_WIDTH - 40), random.randint(0, SCREEN_HEIGHT - 40))
+            self.rect.center = (random.randint(40, SCREEN_WIDTH - 40),0)
 
 P1 = Player()
 E1 = Enemy()
@@ -89,7 +90,7 @@ all_sprites.add(C1)
 INC_SPEED = pygame.USEREVENT + 1
 pygame.time.set_timer(INC_SPEED, 1000)
 
-while True:
+while running:
     for event in pygame.event.get():
         if event.type == INC_SPEED:
             SPEED += 0.5     
@@ -98,6 +99,10 @@ while True:
             sys.exit()
 
     DISPLAYSURF.fill(WHITE)
+
+    pressed_key=pygame.key.get_pressed()
+    if pressed_key[K_SPACE]:
+        running=False
 
     for entity in all_sprites:
         DISPLAYSURF.blit(entity.image, entity.rect)
