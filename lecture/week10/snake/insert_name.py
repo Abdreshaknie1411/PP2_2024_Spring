@@ -8,7 +8,7 @@ def insert_data(nickname):
         VALUES(%s, %s)
         """
     try:
-        with psycopg2.connect(host="localhost", database="postgres", user="postgres", password="12345") as conn:
+        with psycopg2.connect(host="localhost", database="postgres", user="postgres", password="1114") as conn:
             with conn.cursor() as cur:
                 cur.execute(command, data)
     except (psycopg2.DatabaseError, Exception) as error:

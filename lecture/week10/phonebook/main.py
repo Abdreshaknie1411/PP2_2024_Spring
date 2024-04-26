@@ -14,7 +14,7 @@ def create_tables():
         """,
     )
     try:
-        with psycopg2.connect(host="localhost", database="postgres", user="postgres", password="12345") as conn:
+        with psycopg2.connect(host="localhost", database="postgres", user="postgres", password="1114") as conn:
             with conn.cursor() as cur:
                 for command in commands:
                     cur.execute(command)
@@ -29,7 +29,7 @@ def insert_data():
         VALUES(%s, %s, %s)
         """
     try:
-        with psycopg2.connect(host="localhost", database="postgres", user="postgres", password="12345") as conn:
+        with psycopg2.connect(host="localhost", database="postgres", user="postgres", password="1114") as conn:
             with conn.cursor() as cur:
                 cur.execute(command, data)
     except (psycopg2.DatabaseError, Exception) as error:
@@ -41,7 +41,7 @@ def from_csv():
         VALUES(%s, %s, %s)
         """
     try:
-        with psycopg2.connect(host="localhost", database="postgres", user="postgres", password="12345") as conn:
+        with psycopg2.connect(host="localhost", database="postgres", user="postgres", password="1114") as conn:
             with conn.cursor() as cur:
                 with open('numbers.csv', 'r', newline='') as file:
                     rows = csv.reader(file)
@@ -62,7 +62,7 @@ def delete_data():
         WHERE name = %s;
         """
     try:
-        with psycopg2.connect(host="localhost", database="postgres", user="postgres", password="12345") as conn:
+        with psycopg2.connect(host="localhost", database="postgres", user="postgres", password="1114") as conn:
             with conn.cursor() as cur:
                 cur.execute(command, (name,))
                 print(f"Удалено записей: {cur.rowcount}")
@@ -80,7 +80,7 @@ def check_data(id: bool):
             SELECT id, name, last_name, phone_number FROM phonebook ORDER BY name;
         """
     try:
-        with psycopg2.connect(host="localhost", database="postgres", user="postgres", password="12345") as conn:
+        with psycopg2.connect(host="localhost", database="postgres", user="postgres", password="1114") as conn:
             with conn.cursor() as cur:
                 cur.execute(command)
                 print("-----------------------------------------------------")
